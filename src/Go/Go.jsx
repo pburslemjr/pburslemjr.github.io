@@ -69,24 +69,24 @@ export default class SortingVisualizer extends React.Component {
   render() {
 
     return renderBoard(array);
-    const {array} = this.state;
+//     const {array} = this.state;
 
-    return (
-      <div className="array-container">
-        {array.map((x, y) => (
-          <div
-            className="array-bar"            
-            key={idx}
-            style={{
-              width: `10px`,  
-              backgroundColor: PRIMARY_COLOR,
-              height: `10px`,
+//     return (
+//       <div className="array-container">
+//         {array.map((x, y) => (
+//           <div
+//             className="array-bar"            
+//             key={idx}
+//             style={{
+//               width: `10px`,  
+//               backgroundColor: PRIMARY_COLOR,
+//               height: `10px`,
               
-            }}></div>
-        ))}        
-      </div>
-    );
-  }
+//             }}></div>
+//         ))}        
+//       </div>
+//     );
+//   }
 }
 
 // From https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
