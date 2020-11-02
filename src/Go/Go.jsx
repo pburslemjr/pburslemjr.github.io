@@ -53,23 +53,47 @@ export default class SortingVisualizer extends React.Component {
     this.setState({array});
   }
   
-  renderBoard(data)
-  {
-      return data.map((dataRow) => {
-          return dataRow.map((dataItem) =>{
-              return (
-                  <div
-                   key={dataItem.x * dataRow.length + dataItem.y}>
-                   </div>
-              );
-          });
-      });
-  }
+  
 
   render() {
+   
+        const {array} = this.state;  
 
-    return renderBoard(array);
-//     const {array} = this.state;
+        return (
+        <div className="array-container">
+            {array.map((dataRow) => (
+                <div className="row">
+                    {
+                        dataRow.map((dataItem) => (
+                            <div
+                            className="box"
+                            //style={<h2>T</h2>}
+                            key={dataItem.x * dataRow.length + dataItem.y}
+                            style={{left: dataItem.y * 54 + 'px', top: (dataItem.x - dataItem.y) * 54  + 'px'}}>
+                               
+                          <h2>{dataItem.x * dataRow.length + dataItem.y}</h2>
+                      </div>
+                        ))
+                    }
+                    </div>
+                ))
+            }
+        </div>
+        );
+        return array.map((dataRow) => {
+            return dataRow.map((dataItem) =>{
+                return (
+                    <div className="array-container">
+                      <div
+                      className="box"
+                      //style={<h2>T</h2>}
+                      key={dataItem.x * dataRow.length + dataItem.y}>
+                          <h2>{dataItem.x * dataRow.length + dataItem.y}</h2>
+                      </div>
+                     </div>
+                );
+            });
+        });
 
 //     return (
 //       <div className="array-container">
