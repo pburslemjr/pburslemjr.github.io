@@ -1,13 +1,30 @@
 .array-container {
-    position: absolute;
-    left: 100px;
-    /* top: 100px; */
+    position: relative;
+    top: 0%;
+    left: 0%;
+    
+    height: 500px;
+    width: 500px;
+
+    /* justify-content: center; */
   }
   
   .box {
+      position: relative;
+      
       background-color: white;
       border: 2px solid black;
+      height: 50px;
+      width: 50px;
       
+      
+  }
+
+  .row {
+      position: absolute;
+      
+      display: inline;
+
   }
   .array-bar {
     width: 2px;
