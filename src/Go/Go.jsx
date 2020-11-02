@@ -28,72 +28,52 @@ export default class SortingVisualizer extends React.Component {
     this.resetArray();
   }
 
+  createArray(height, width) 
+  {
+      let data = [];
+      for (let i = 0; i < height; i++)
+      {
+            data.push([]);
+            for (let j = 0; j < width; j++)
+            {
+                data[i][j] = {
+                    x: i,
+                    y: j,
+                };
+            }
+      }
+      return data;
+  }
   resetArray() {
-    const array = [];
-    for (let i = 0; i < 20; i++) {
-      array.push(i);
-    }
+    // const array = [];
+    // for (let i = 0; i < 20; i++) {
+    //   array.push(i);
+    // }
+    let array = this.createArray(10,10);
     this.setState({array});
   }
-
-  mergeSort() {
-    const animations = this.state.array;
-    for (let i = 0; i < animations.length; i++) {
-      const arrayBars = document.getElementsByClassName('array-bar');
-      const isColorChange = i % 3 !== 2;
-      if (isColorChange) {
-        const [barOneIdx, barTwoIdx] = animations[i];
-        const barOneStyle = arrayBars[barOneIdx].style;
-        const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
-        setTimeout(() => {
-          barOneStyle.backgroundColor = color;
-          barTwoStyle.backgroundColor = color;
-        }, i * ANIMATION_SPEED_MS);
-      } else {
-        setTimeout(() => {
-          const [barOneIdx, newHeight] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
-          barOneStyle.height = `${newHeight}px`;
-        }, i * ANIMATION_SPEED_MS);
-      }
-    }
+  
+  renderBoard(data)
+  {
+      return data.map((dataRow) => {
+          return dataRow.map((dataItem) =>{
+              return (
+                  <div
+                   key={dataItem.x * dataRow.length + dataItem.y}>
+                   </div>
+              );
+          });
+      });
   }
-
-  quickSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
-  }
-
-  heapSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
-  }
-
-  bubbleSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
-  }
-
-  // NOTE: This method will only work if your sorting algorithms actually return
-  // the sorted arrays; if they return the animations (as they currently do), then
-  // this method will be broken.
-//   testSortingAlgorithms() {
-//     for (let i = 0; i < 100; i++) {
-//       const array = [];
-//       const length = randomIntFromInterval(1, 1000);
-//       for (let i = 0; i < length; i++) {
-//         array.push(randomIntFromInterval(-1000, 1000));
-//       }
-//       const javaScriptSortedArray = array.slice().sort((a, b) => a - b);
-//       const mergeSortedArray = getMergeSortAnimations(array.slice());
-//       console.log(arraysAreEqual(javaScriptSortedArray, mergeSortedArray));
-//     }
-//   }
 
   render() {
+
+    return renderBoard(array);
     const {array} = this.state;
 
     return (
       <div className="array-container">
-        {array.map((value, idx) => (
+        {array.map((x, y) => (
           <div
             className="array-bar"            
             key={idx}
@@ -114,6 +94,8 @@ function randomIntFromInterval(min, max) {
   // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+
 
 function arraysAreEqual(arrayOne, arrayTwo) {
   if (arrayOne.length !== arrayTwo.length) return false;
