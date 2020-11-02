@@ -86,7 +86,7 @@ export default class SortingVisualizer extends React.Component {
 //         ))}        
 //       </div>
 //     );
-//   }
+   }
 }
 
 // From https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
