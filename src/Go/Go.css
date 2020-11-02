@@ -4,8 +4,13 @@
     /* top: 100px; */
   }
   
+  .box {
+      background-color: white;
+      border: 2px solid black;
+      
+  }
   .array-bar {
-    width: 4px;
+    width: 2px;
     display: inline-block;
     margin: 0 1px;
   }
