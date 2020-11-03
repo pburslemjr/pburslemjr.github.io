@@ -6,13 +6,13 @@
     height: 500px;
     width: 500px;
 
-    /* justify-content: center; */
+    /* silly comment */
   }
   
   .box {
       position: relative;
       
-      background-color: white;
+      background-color: rgb(230, 10, 10);
       border: 2px solid black;
       height: 50px;
       width: 50px;
