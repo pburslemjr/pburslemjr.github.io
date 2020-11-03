@@ -2,18 +2,8 @@ import React from 'react';
 //import {getMergeSortAnimations} from '../sortingAlgorithms/sortingAlgorithms.js';
 import './Go.css';
 
-// Change this value for the speed of the animations.
-const ANIMATION_SPEED_MS = 1;
-//comment again
 
-// Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 310;
 
-// This is the main color of the array bars.
-const PRIMARY_COLOR = 'turquoise';
-
-// This is the color of array bars that are being compared throughout the animations.
-const SECONDARY_COLOR = 'red';
 
 export default class SortingVisualizer extends React.Component {
   constructor(props) {
@@ -80,20 +70,7 @@ export default class SortingVisualizer extends React.Component {
             }
         </div>
         );
-        return array.map((dataRow) => {
-            return dataRow.map((dataItem) =>{
-                return (
-                    <div className="array-container">
-                      <div
-                      className="box"
-                      //style={<h2>T</h2>}
-                      key={dataItem.x * dataRow.length + dataItem.y}>
-                          <h2>{dataItem.x * dataRow.length + dataItem.y}</h2>
-                      </div>
-                     </div>
-                );
-            });
-        });
+       
 
 //     return (
 //       <div className="array-container">
@@ -113,20 +90,3 @@ export default class SortingVisualizer extends React.Component {
    }
 }
 
-// From https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
-function randomIntFromInterval(min, max) {
-  // min and max included
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-
-
-function arraysAreEqual(arrayOne, arrayTwo) {
-  if (arrayOne.length !== arrayTwo.length) return false;
-  for (let i = 0; i < arrayOne.length; i++) {
-    if (arrayOne[i] !== arrayTwo[i]) {
-      return false;
-    }
-  }
-  return true;
-}
