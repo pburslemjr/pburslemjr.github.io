@@ -39,7 +39,7 @@ export default class SortingVisualizer extends React.Component {
     // for (let i = 0; i < 20; i++) {
     //   array.push(i);
     // }
-    let array = this.createArray(10,10);
+    let array = this.createArray(20,20);
     this.setState({array});
   }
   
@@ -61,7 +61,7 @@ export default class SortingVisualizer extends React.Component {
                             key={dataItem.x * dataRow.length + dataItem.y}
                             style={{left: dataItem.y * 54 + 'px', top: (dataItem.x - dataItem.y) * 54  + 'px'}}>
                                
-                          <h2>{(dataItem.x * dataRow.length + dataItem.y)* 10}</h2>
+                          <h2>{(dataItem.x * dataRow.length + dataItem.y)}</h2>
                       </div>
                         ))
                     }
